@@ -4,7 +4,7 @@
     "../docker-compose.yml",
     "docker-compose.dev.yml"
   ],
-  "service": "api",
+  "service": "lde-api",
   "workspaceFolder": "/app",
   "customizations": {
     "vscode": {

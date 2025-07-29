@@ -1,6 +1,6 @@
-[submodule "lde-frontent"]
-	path = lde-frontent
-	url = https://github.com/JOSEW383/lde-frontent.git
+[submodule "lde-frontend"]
+	path = lde-frontend
+	url = https://github.com/JOSEW383/lde-frontend.git
 [submodule "lde-api"]
 	path = lde-api
 	url = https://github.com/JOSEW383/lde-api.git

@@ -1,14 +1,17 @@
+
 services:
-  api:
-    build: ./api
-    container_name: lapiz-de-encanto-api
+  lde-api:
+    build:
+      context: ./lde-api
+      dockerfile: Dockerfile
+    container_name: lde-api
     ports:
       - "4000:4000"
     volumes:
       - db_data:/app/data
-      - ./api/static:/app/static
+      - ./lde-api/static:/app/static
     env_file:
-      - ./api/.env
+      - ./lde-api/.env
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:4000/health" ]
       interval: 10s
@@ -16,30 +19,34 @@ services:
       retries: 5
     restart: unless-stopped
 
-  frontend:
-    build: ./frontend
-    container_name: lapiz-de-encanto-frontend
-    ports:
-      - "3000:3000"
-    depends_on:
-      api:
-        condition: service_healthy
-    env_file:
-      - ./frontend/.env
-    restart: unless-stopped
-
-  admin:
-    build: ./admin
-    container_name: lapiz-de-encanto-admin
+  lde-admin:
+    build:
+      context: ./lde-admin
+      dockerfile: Dockerfile
+    container_name: lde-admin
     ports:
       - "3001:3001"
     depends_on:
-      api:
+      lde-api:
         condition: service_healthy
     env_file:
-      - ./admin/.env
-
+      - ./lde-admin/.env
     restart: unless-stopped
+
+  lde-frontend:
+    build:
+      context: ./lde-frontend
+      dockerfile: Dockerfile
+    container_name: lde-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      lde-api:
+        condition: service_healthy
+    env_file:
+      - ./lde-frontend/.env
+    restart: unless-stopped
+
 
 volumes:
   db_data:

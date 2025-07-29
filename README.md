@@ -40,13 +40,14 @@ A modern and functional online e-commerce store built with modern web technologi
 
 2. **Configure environment variables**:
 
-   Each subproject (`admin`, `api`, `frontend`) has its own `.env` file.
+
+   Each subproject (`lde-admin`, `lde-api`, `lde-frontend`) has its own `.env` file.
 
    For full system configuration (email, Bizum, shipping), create and configure the `.env` file in each subproject:
 
-   - **Admin**: Copy `admin/.env.example` to `admin/.env` and edit with your real values.
-   - **Frontend**: Copy `frontend/.env.example` to `frontend/.env` and edit with your real values.
-   - **API**: Copy `api/.env.example` to `api/.env` and edit with your real values.
+   - **Admin**: Copy `lde-admin/.env.example` to `lde-admin/.env` and edit with your real values.
+   - **Frontend**: Copy `lde-frontend/.env.example` to `lde-frontend/.env` and edit with your real values.
+   - **API**: Copy `lde-api/.env.example` to `lde-api/.env` and edit with your real values.
 
 3. **Run with Docker**:
 
@@ -61,7 +62,10 @@ docker compose up --build
 
 ## Development with Dev Containers (VS Code)
 
-You can use [Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) for an integrated development environment, with hot-reload and real-time changes in all three services (API, Admin, and Frontend).
+
+You can use [Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) for an integrated development environment, with hot-reload and real-time changes in all three services (lde-api, lde-admin, y lde-frontend).
+
+The configuration for the development containers is located in the `.devcontainer/` folder at the root of the project.
 
 ### Prerequisites
 
@@ -81,7 +85,7 @@ You can use [Dev Containers](https://code.visualstudio.com/docs/devcontainers/co
    ```
 
 5. VS Code will automatically open in the development environment, without entering directly into any subproject.
-6. The services will start in development mode and changes in the `api/`, `admin/`, and `frontend/` files will be instantly reflected (hot-reload).
+6. The services will start in development mode y los cambios en los archivos de `lde-api/`, `lde-admin/` y `lde-frontend/` se reflejarán instantáneamente (hot-reload).
 
 ---
 
