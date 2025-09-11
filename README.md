@@ -45,7 +45,9 @@ git clone --recurse-submodules <repo_url>
 2. **Update submodules (optional)**: If you already have the repository and need to update submodules:
 
 ```bash
+git pull --recurse-submodules
 git submodule update --recursive --remote
+git config --global submodule.recurse true
 ```
 
 3. **Configure environment variables**:
