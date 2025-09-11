@@ -38,6 +38,10 @@ A modern and functional online e-commerce store built with modern web technologi
 
 1. **Clone the repository**
 
+```bash
+git clone --recurse-submodules <repo_url>
+```
+
 2. **Configure environment variables**:
 
 
