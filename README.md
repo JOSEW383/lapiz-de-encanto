@@ -60,6 +60,39 @@ docker compose up --build
    - Admin: http://localhost:3001
    - API: http://localhost:4000
 
+## Database Migrations
+
+The project includes a migration system to handle database schema changes. Migrations are stored in `lde-api/migrations/` and are automatically managed.
+
+### Running Migrations
+
+**Using Docker (Recommended):**
+```bash
+# Run all pending migrations
+docker exec -it lde-api python migrations/migrate.py
+
+# Check migration status
+docker exec -it lde-api python migrations/migrate.py --list
+```
+
+**For Development:**
+```bash
+# If you're running the API locally
+cd lde-api
+python migrations/migrate.py
+
+# Check status
+python migrations/migrate.py --list
+```
+
+### Migration Files
+
+Migrations are numbered sequentially:
+- `001_add_max_order_amount.py` - Adds max_order_amount column to coupons table
+- Future migrations will follow the pattern `XXX_description.py`
+
+**Note:** Migrations are automatically executed when the containers start up. Manual execution is only needed for troubleshooting or running migrations on an already running container.
+
 ## Development with Dev Containers (VS Code)
 
 
@@ -144,6 +177,8 @@ The configuration for the development containers is located in the `.devcontaine
 - Coupon creation and management
 - Discount application during checkout
 - Configurable expiration dates and limits
+- **Minimum and maximum order amount validation**
+- **Support for shipping cost elimination coupons**
 
 #### 🧳 Sections
 - Section manager for creating and editing landing page content
