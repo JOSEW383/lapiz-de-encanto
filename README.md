@@ -42,7 +42,13 @@ A modern and functional online e-commerce store built with modern web technologi
 git clone --recurse-submodules <repo_url>
 ```
 
-2. **Configure environment variables**:
+2. **Update submodules (optional)**: If you already have the repository and need to update submodules:
+
+```bash
+git submodule update --recursive --remote
+```
+
+3. **Configure environment variables**:
 
 
    Each subproject (`lde-admin`, `lde-api`, `lde-frontend`) has its own `.env` file.
@@ -53,13 +59,13 @@ git clone --recurse-submodules <repo_url>
    - **Frontend**: Copy `lde-frontend/.env.example` to `lde-frontend/.env` and edit with your real values.
    - **API**: Copy `lde-api/.env.example` to `lde-api/.env` and edit with your real values.
 
-3. **Run with Docker**:
+4. **Run with Docker**:
 
 ```bash
 docker compose up --build
 ```
 
-4. **Access**:
+5. **Access**:
    - Store: http://localhost:3000
    - Admin: http://localhost:3001
    - API: http://localhost:4000
