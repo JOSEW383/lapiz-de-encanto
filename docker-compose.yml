@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     container_name: lde-api
     ports:
-      - "4000:4000"
+      - "50019:4000"
     volumes:
       - db_data:/app/data
       - ./lde-api/static:/app/static
@@ -25,7 +25,7 @@ services:
       dockerfile: Dockerfile
     container_name: lde-admin
     ports:
-      - "3001:3001"
+      - "50018:3001"
     depends_on:
       lde-api:
         condition: service_healthy
@@ -39,7 +39,7 @@ services:
       dockerfile: Dockerfile
     container_name: lde-frontend
     ports:
-      - "3000:3000"
+      - "50017:3000"
     depends_on:
       lde-api:
         condition: service_healthy
